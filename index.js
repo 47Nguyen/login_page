@@ -17,11 +17,20 @@ const userSchema = new mongoose.Schema({
 })
 const User = mongoose.model('User', userSchema)
 
-app.post('/registration-form', (req, res)=>{
+app.post('/user-registration-form', (req, res)=>{
     console.log("Login info received");
     console.log(`Username: ${req.body.username}`)
     console.log(`Password: ${req.body.password}`)
     console.log(`Email: ${req.body.email}`)
+    res.send("Post form submitted")
+})
+
+app.post('/shipper-registration-form', (req, res)=>{
+    console.log("Login info received");
+    console.log(`Username: ${req.body.username}`)
+    console.log(`Password: ${req.body.password}`)
+    console.log(`Email: ${req.body.email}`)
+    console.log(`National ID: ${req.body.national}`)
     res.send("Post form submitted")
 })
 
