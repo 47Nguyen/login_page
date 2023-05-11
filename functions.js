@@ -25,7 +25,6 @@ form.addEventListener('submit', (e)=>{
 
 
     if (messages.length > 0 ){
-        e.preventDefault()
         errorPassword.innerHTML = messages.join(' and ')
     }
     if (messages.length > 0 ){
@@ -33,6 +32,9 @@ form.addEventListener('submit', (e)=>{
         error.innerHTML = messages2.join(' ')
     }
 })
+
+
+
 
 
 function toggle(){

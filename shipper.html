@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registerstyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Register page</title>
+</head>
+<body>
+    <div class="center">
+        <h1>Shipper Registration Page</h1>
+        <form>
+            <div class="email">
+                <label>📧Email</label>
+                <input type="email">
+            </div>
+            <span class="error-message">
+            </span>
+            <div class="input_info">
+                <label>👦Username</label>
+                <input type="text">  
+            </div>
+            <div class="input_info">
+                <label>National ID</label>
+                <input type="number">  
+            </div>
+            <div class="input_info">
+                <label>📱Phone Number</label>
+                <input type="number">  
+            </div>
+            <div class="pass_info">
+                <label>🔐Password</label>
+                <input type="password">  
+                <p class='hide-show' onclick="toggle()">Show/Hide</p>
+            </div>
+
+            <span>
+                <div class="error-display">
+                    <div id="errorPassword"></div>
+                    <div id="error"></div>
+                </div>
+            </span>
+            <button id = "register" type="submit">Sign up</button>
+        </form>
+    </div>
+</body>
+</html>
