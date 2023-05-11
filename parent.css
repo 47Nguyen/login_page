@@ -2,7 +2,7 @@ body{
     background:linear-gradient(120deg,#adf7f2, #15aaff);
     height: 100vh;
 }
-
+h1{text-align: center;}
 .center{
     position: absolute;
     top: 50%;

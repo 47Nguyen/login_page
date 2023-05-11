@@ -94,3 +94,7 @@ form .email{
     bottom: 20px;
     color: red;
 }
+
+a{
+    text-decoration: none;
+}
