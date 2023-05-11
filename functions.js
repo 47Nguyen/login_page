@@ -10,8 +10,13 @@ var state = false
 
 form.addEventListener('submit', (e)=>{
     let messages = []
+    let messages2 = []
     if (email.value === ''){
         messages.push('Email is required')
+    }
+    
+    if (username.value.length <= 6){
+        messages2.push("Username need to be between 6 and 12")
     }
 
     if (Password.value.length <= 6 ){
@@ -21,6 +26,10 @@ form.addEventListener('submit', (e)=>{
     if (messages.length > 0 ){
         e.preventDefault()
         errorPassword.innerHTML = messages.join(' and ')
+    }
+    if (messages.length > 0 ){
+        e.preventDefault()
+        error.innerHTML = messages2.join(' ')
     }
 })
 

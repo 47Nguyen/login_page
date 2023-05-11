@@ -84,14 +84,11 @@ form .email{
 
 }
 .hide-show{
-    position: absolute;
-    top: 65%;
-    left: 81%;
+   position: absolute;
+   left: 85%;
+   top: 30%;
 }
 
-#errorPassword{
-    color: red;
-}
-#error{
+.error-display{
     color: red;
 }
