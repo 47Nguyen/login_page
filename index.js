@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema)
 
+//Post Method
 app.post('/user-registration-form', (req, res)=>{
     console.log("Login info received");
     console.log(`Username: ${req.body.username}`)
@@ -39,9 +40,27 @@ app.post('/shipper-registration-form', (req, res)=>{
     res.send("Post form submitted")
 })
 
+
+// Get Method
 app.get('/login', (req, res) =>{
     res.render('login.ejs')
 })
+app.get('/shipper-regis', (req, res) =>{
+    res.render('shipper.ejs')
+})
+app.get('/parent', (req, res) =>{
+    res.render('parentpage.ejs')
+})
+app.get('/vendor', (req, res) =>{
+    res.render('vendor.ejs')
+})
+
+
+
+
+
+
+
 
 /*
 user.save()
