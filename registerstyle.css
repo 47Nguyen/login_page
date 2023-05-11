@@ -90,5 +90,7 @@ form .email{
 }
 
 .error-display{
+    position: relative;
+    bottom: 20px;
     color: red;
 }

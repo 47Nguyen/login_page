@@ -23,6 +23,7 @@ form.addEventListener('submit', (e)=>{
         messages.push('Password is too short')
     }
 
+
     if (messages.length > 0 ){
         e.preventDefault()
         errorPassword.innerHTML = messages.join(' and ')
