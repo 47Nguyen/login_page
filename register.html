@@ -11,24 +11,20 @@
 <body>
     <div class="center">
         <h1>Customer Registration Page</h1>
-        
-        <form>
+        <form method="post" action="http://localhost:3000/registration-form">
             <div class="email">
-                <label>📧Email</label>
-                <input type="email">
+                <label name = "email">📧Email</label>
+                <input type="email" name="email">
             </div>
             <span class="error-message">
             </span>
             <div class="input_info">
-                <label>👦Username</label>
-                <input type="text">  
+                <label name = "username">👦Username</label>
+                <input type="text" name="username">  
             </div>
-            <span class="error-message">
-                <p class="error-text" >Please enter a valid username</p>
-            </span>
             <div class="pass_info">
-                <label>🔐Password</label>
-                <input type="password">  
+                <label name = "password">🔐Password</label>
+                <input type="password" name="password">  
                 <p class='hide-show' onclick="toggle()">Show/Hide</p>
             </div>
             <span>
