@@ -19,17 +19,68 @@ const userSchema = new mongoose.Schema({
     email: String,
     Password: String
 })
+const shipperSchema = new mongoose.Schema({
+    email: String,
+    username: String,
+    national_id: Number,
+    Phone_Number: Number,
+    Password: String
+})
+const vendorSchema = new mongoose.Schema({
+    email: String,
+    username: String,
+    national_id: Number,
+    Phone_Number: Number,
+    Business_name: String, 
+    Password: String
+})
 
 const User = mongoose.model('User', userSchema)
+const Vendor = mongoose.model('Vendor', vendorSchema)
+const Shipper = mongoose.model('Shipper', shipperSchema)
 
 //Post Method
 app.post('/register', (req, res) =>{
-    console.log("Date received from POST form")
-    console.log(`Email: ${req.body.email}`)
-    console.log(`Username: ${req.body.username}`)
-    console.log(`Password: ${req.body.password}`)
-    res.send("Post form submitted")
+    const user = new User({
+        username: req.body.username,
+        email: req.body.email,
+        Password: req.body.password
+    }) 
+    user.save()
+    .then(() => console.log("User information saved"))
+    .catch((error) => console.log(error.message))
+    res.redirect("/login")
 })
+
+app.post('/shipper', (req, res)=>{
+    const shipper = new Shipper({
+        email: req.body.email,
+        username: req.body.username,
+        national_id: req.body.national,
+        Phone_Number: req.body.phone,
+        Password: req.body.password
+    })
+    shipper.save()
+    .then(() => console.log("Shipper information saved"))
+    .catch((error) => console.log(error.message))
+    res.redirect("/login")
+})
+
+app.post('/vendor', (req, res)=>{
+    const vendor = new Vendor({
+        email: req.body.username,
+        username: req.body.username,
+        national_id: req.body.national,
+        Phone_Number: req.body.phone,
+        Business_name: req.body.business, 
+        Password: req.body.password
+    })
+    vendor.save()
+    .then(() => console.log("Vendor information saved"))
+    .catch((error) => console.log(error.message))
+    res.redirect('/login')
+})
+
 
 
 
@@ -52,18 +103,6 @@ app.get('/register', (req, res) =>{
     res.render('register.ejs')
 })
 
-
-
-
-
-
-
-
-/*
-user.save()
-.then(() => console.log("info save"))
-.catch((error) => console.log(error.message))
-*/ 
 
 app.listen(port, ()=> {
     console.log("Port Working")
