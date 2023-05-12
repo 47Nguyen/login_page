@@ -10,7 +10,7 @@
 <body>
     <div class="center">
         <h1>LOGIN PAGE</h1>
-        <form method="get" action="http://localhost:3000/login-form">
+        <form method="POST" action="http://localhost:3000/login-form">
             <div class="input_info">
                 <input type="text" required>
                 <label name = "username">🧑 Username</label>
@@ -19,7 +19,7 @@
                 <input type="password" required>
                 <label name = "password">🔒 Password</label>
             </div>
-            <div class="create">Don't have an account yet? <a href="/views/parentpage.ejs">Register here</a></div>
+            <div class="create">Don't have an account yet? <a href="/parent">Register here</a></div>
             <div class="center_login">
                 <input class = "login" type="submit" value="Sign in">
             </div>

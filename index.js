@@ -23,29 +23,22 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema)
 
 //Post Method
-app.post('/user-registration-form', (req, res)=>{
-    console.log("Login info received");
+app.post('/register', (req, res) =>{
+    console.log("Date received from POST form")
+    console.log(`Email: ${req.body.email}`)
     console.log(`Username: ${req.body.username}`)
     console.log(`Password: ${req.body.password}`)
-    console.log(`Email: ${req.body.email}`)
     res.send("Post form submitted")
 })
 
-app.post('/shipper-registration-form', (req, res)=>{
-    console.log("Login info received");
-    console.log(`Username: ${req.body.username}`)
-    console.log(`Password: ${req.body.password}`)
-    console.log(`Email: ${req.body.email}`)
-    console.log(`National ID: ${req.body.national}`)
-    res.send("Post form submitted")
-})
 
 
 // Get Method
 app.get('/login', (req, res) =>{
     res.render('login.ejs')
 })
-app.get('/shipper-regis', (req, res) =>{
+
+app.get('/shipper', (req, res) =>{
     res.render('shipper.ejs')
 })
 app.get('/parent', (req, res) =>{
@@ -53,6 +46,10 @@ app.get('/parent', (req, res) =>{
 })
 app.get('/vendor', (req, res) =>{
     res.render('vendor.ejs')
+})
+
+app.get('/register', (req, res) =>{
+    res.render('register.ejs')
 })
 
 
