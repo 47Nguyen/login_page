@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>SHipping </title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <center>
+    <div class="order_detail">
+      <div class="product">
+        <div class="product_detail">
+          <img src="https://m.media-amazon.com/images/I/71KQim7lz0L._SL1500_.jpg">
+          <h1>Starbucks Ground Coffee</h1>
+        </div>
+        <div class="product_quantity">
+          <form class="product_form">
+            <input type="number" id='quantity' name="quantity1" min="1" max="10">
+            <button type="button">
+          </form>
+        
+        </div>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/816ivMbaVGL._SL1500_.jpg">
+      <h1>Starbucks Ground Coffee</h1>
+    </div>
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/81OcduO7ecL._SL1500_.jpg">
+      <h1>Starbucks Ground Coffee</h1>
+    </div>
+    </div>
+
+    <div class="container_for_info">
+      <div class='shipping_information'>
+        <fieldset>
+          <legend>shipping information</legend>
+          <form>
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name"> <br>
+            <label for="email">email</label>
+            <input type="email" id="email" name="email"> <br>
+            <label for="address">location</label>
+            <input type="text" id="addresss" name='address'><br>
+            <label for='city'>City</label>
+            <select name="city" id="city">
+              <option value="HCM">Ho Chi Minh</option>
+              <option value="HN">Ha Noi</option>
+
+            </select>
+            <label for='delivery'>delivery type</label>
+            <select name="delivery_type" id="delivery_type">
+              <option value="normal">normal</option>
+              <option value="experess">express</option>
+            </select>
+          </form>
+        </fieldset>
+      </div>
+      <div class="payment">
+        <fieldset>
+
+          <legend>payment</legend>
+          <label for="name_on_card">Name on card</label>
+          <input type="text" id="name_on_card" name="name_on_card"> <br>
+          <label for="Credit_card_number">Credit card number</label>
+          <input type="text" id="Credit_card_number" name="Credit_card number"> <br>
+          <label for="Exp_Month">first name</label>
+          <input type="text" id="Exp_Month" name="Exp_Month"> <br>
+          <label for="Exp_Year">Exp Year</label>
+          <input type="text" id="Exp_Year" name="Exp_Year"> <br>
+          <label for="CVV">first name</label>
+          <input type="text" id="CVV" name="CVV"> <br>
+        </fieldset>
+      </div>
+
+    </div>
+    <div class="disscount">
+
+      <input type="checkbox" id="disscount1" name="disscount1" value="1">
+      <label for="disscount1"> anniversary </label><br>
+      <input type="checkbox" id="disscount2" name="disscount" value="2">
+      <label for="disscount2"> New member</label><br>
+      <input type="checkbox" id="disscount3" name="disscount" value="3">
+      <label for="disscount3"> company sale</label>
+
+    </div>
+    <input type="submit">
+  </center>
+
+</body>
+
+</html>
