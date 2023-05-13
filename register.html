@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="registerstyle.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Register page</title>
 </head>
 <body>
     <div class="center">
         <h1><a href="parentpage.html">⬅️</a>Customer Registration Page</h1>
-        <form method="post" action="http://localhost:3000/user-registration-form">
+        <form method="get">
             <div class="email">
                 <label name = "email">📧Email</label>
                 <input type="email" name="email">
@@ -24,7 +23,7 @@
             </div>
             <div class="pass_info">
                 <label name = "password">🔐Password</label>
-                <input type="password" name="password">  
+                <input type="password" name="password"  onkeyup="myInput()">   
                 <p class='hide-show' onclick="toggle()">Show/Hide</p>
             </div>
             <span>

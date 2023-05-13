@@ -5,6 +5,8 @@ const form = document.querySelector('form')
 const email = document.querySelector('.email input')
 const error = document.getElementById('error')
 const errorPassword = document.getElementById('errorPassword')
+var letter=document.getElementByName('letter');
+var capital=document.getElementsByName('number')
 var state = false
 
 
@@ -32,8 +34,6 @@ form.addEventListener('submit', (e)=>{
         error.innerHTML = messages2.join(' ')
     }
 })
-
-
 
 
 

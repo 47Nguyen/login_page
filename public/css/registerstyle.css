@@ -98,3 +98,11 @@ form .email{
 a{
     text-decoration: none;
 }
+
+.invalid{
+    color: red;
+    text-decoration: line-through;
+}
+.valid{
+    color: green;
+}
