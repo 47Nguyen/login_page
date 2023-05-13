@@ -16,6 +16,7 @@ mongoose.connect('mongodb+srv://trungluong0806:Lacussaber080699@cluster0.w8zcmxn
 
 const userSchema = new mongoose.Schema({
     username: String,
+    address: String,
     email: String,
     Password: String
 })
@@ -43,6 +44,7 @@ const Shipper = mongoose.model('Shipper', shipperSchema)
 app.post('/register', (req, res) =>{
     const user = new User({
         username: req.body.username,
+        address: req.body.address,
         email: req.body.email,
         Password: req.body.password
     }) 

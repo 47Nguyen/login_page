@@ -14,9 +14,12 @@
         <form method="post" action="http://localhost:3000/register">
             <div class="email">
                 <label name = "email">📧Email</label>
-                <input  type="email" name="email">
+                <input type="email" name="email" >
             </div>
-            <span class="error-message">
+            <div class="email">
+                <label name = "address">Address</label>
+                <input type="text" name="address" id="address">
+            </div>
             </span>
             <div class="input_info">
                 <label name = "username">👦Username</label>
@@ -24,14 +27,15 @@
             </div>
             <div class="pass_info">
                 <label name = "password">🔐Password</label>
-                <input id = "password" type="password" name="password" onkeyup="checkPassword()">  
+                <input id = "password" type="password" name="password" onkeyup="checkPassword()" >  
                 <p class='hide-show' onclick="toggle()">Show/Hide</p>
             </div>
-
             <span>
                 <div class="error-display">
                     <div id="errorPassword"></div>
                     <div id="error"></div>
+                    <div id="valid"></div>
+                    <div id="valid2"></div>
                 </div>
             </span>
             <button id = "register" type="submit">Sign up</button>

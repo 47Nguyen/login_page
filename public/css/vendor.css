@@ -1,6 +1,6 @@
 body{
     background:linear-gradient(120deg,#adf7f2, #15aaff);
-    height: 100vh;
+    height: 110vh;
 }
 
 
@@ -97,4 +97,11 @@ form .email{
 
 a{
     text-decoration: none;
+}
+.invalid{
+    color: red;
+    text-decoration: line-through;
+}
+.valid{
+    color: green;
 }

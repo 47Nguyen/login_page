@@ -14,29 +14,33 @@
         <form method="post" action="http://localhost:3000/vendor">
             <div class="email">
                 <label>📧Email</label>
-                <input type="email" name="email">
+                <input type="email" name="email" required>
             </div>
             <span class="error-message">
             </span>
             <div class="input_info">
                 <label>👦Username</label>
-                <input type="text" name="username">  
+                <input id="username" type="text" name="username" onkeydown="checkUsername()" required>  
             </div>
             <div class="input_info">
                 <label>National ID</label>
-                <input type="number" name="national">  
+                <input type="number" name="national" required>  
             </div>
             <div class="input_info">
                 <label>📱Phone Number</label>
-                <input type="number" name="phone">  
+                <input type="number" name="phone" required>   
             </div>
             <div class="input_info">
                 <label>Business Name</label>
-                <input type="text" name="business">  
+                <input type="text" name="business" required>  
+            </div>
+            <div class="input_info">
+                <label>Business Address</label>
+                <input type="text" name="business_address" required>  
             </div>
             <div class="pass_info">
                 <label>🔐Password</label>
-                <input type="password" name="password">  
+                <input id = "password" type="password" name="password" onkeyup="checkPassword()" required >  
                 <p class='hide-show' onclick="toggle()">Show/Hide</p>
             </div>
 
