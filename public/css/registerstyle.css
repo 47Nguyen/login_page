@@ -121,7 +121,7 @@ a{
 @media(max-width:1023px){
     .center{
         position: absolute;
-        top: 55%;
+        top: 40%;
         left: 50%;
         transform: translate(-50%,-50%);
         background-color: white;
@@ -166,7 +166,7 @@ a{
 @media(max-width:767px){
     .center{
         position: absolute;
-        top: 55%;
+        top: 35%;
         left: 50%;
         transform: translate(-50%,-50%);
         background-color: white;

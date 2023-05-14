@@ -4,6 +4,23 @@ body{
 }
 h1{text-align: center;}
 
+.choose{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5%;
+}
+.text{
+    text-transform: uppercase;
+    font-size: 30px;
+    display: flex;
+    font-weight: 700;
+    background: linear-gradient(90deg,#000000, #15aaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
 .center{
     position: absolute;
     top: 50%;
