@@ -3,6 +3,7 @@ const Password = document.querySelector(".pass_info input")
 const username = document.querySelector(".input_info input")
 const email = document.querySelector('.email input')
 const address = document.getElementById("address")
+const number = document.getElementById('phone')
 const error = document.getElementById('error')
 const errorPassword = document.getElementById('errorPassword')
 const valid = document.getElementById("valid")
@@ -16,6 +17,7 @@ form.addEventListener('submit', (e)=>{
     let validMessage = []
     let validMessage2 = []
     
+
     if (email.value === ''){
         messages.push('Email is required')
     }
@@ -28,19 +30,18 @@ form.addEventListener('submit', (e)=>{
     }
     else{
         e.preventDefault()
-        messages2.push("Username doesn't meet requirement")
+        messages2.push("Username need 1 uppercase, 1 lowercase and 1 number")
     } 
     if (Password.value.search(/[!@#$%^&*]/)>= 0 && Password.value.search(/[0-9]/) >= 0 && Password.value.search(/[a-z]/) >= 0 && Password.value.search(/[A-Z]/) >= 0 && Password.value.length >=8 && Password.value.length <=20){
         validMessage2.push("Password is valid")
     }
     else{
         e.preventDefault()
-        messages.push("Password requirements are 1 uppercase letter, 1 number and 1 special symbol" )
+        messages.push("Password need 1 uppercase, 1 lowercase, 1 number and 1 special symbol" )
     } 
 
     if (address.value === ""){
         e.preventDefault()
-        messages2.push("Address is empty")
     }
     else{
         validMessage2.push("Valid Address")
