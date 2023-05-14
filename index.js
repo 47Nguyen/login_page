@@ -33,6 +33,7 @@ const vendorSchema = new mongoose.Schema({
     national_id: Number,
     Phone_Number: Number,
     Business_name: String, 
+    baddress: String, 
     Password: String
 })
 
@@ -75,6 +76,7 @@ app.post('/vendor', (req, res)=>{
         national_id: req.body.national,
         Phone_Number: req.body.phone,
         Business_name: req.body.business, 
+        baddress: req.body.baddress, 
         Password: req.body.password
     })
     vendor.save()

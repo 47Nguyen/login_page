@@ -11,35 +11,40 @@
 <body>
     <div class="center">
         <h1><a href="/parent">⬅️</a>Shipper Registration Page</h1>
-        <form method="post" action="http://localhost:3000/shipper">
+        <form method="post" action="http://localhost:3000/shipper" id="form-customer">
             <div class="email">
                 <label>📧Email</label>
-                <input type="email" name = "email" required>
+                <input type="email" name = "email">
             </div>
             <span class="error-message">
             </span>
             <div class="input_info">
                 <label>👦Username</label>
-                <input type="text" name="username" required>  
+                <input type="text" name="username" id="username" onkeydown="checkUsername()">  
             </div>
             <div class="input_info">
                 <label>National ID</label>
-                <input type="number" name="national" required>  
+                <input type="number" name="national" minlength="5">  
             </div>
             <div class="input_info">
                 <label>📱Phone Number</label>
-                <input type="number" name = "phone" required>  
+                <input type="number" name = "phone">  
+            </div>
+            <div class="email">
+                <label name = "address">Address</label>
+                <input type="text" name="address" id="address">
             </div>
             <div class="pass_info">
                 <label>🔐Password</label>
-                <input type="password" name="password" required>  
+                <input id = "password" type="password" name="password" onkeyup="checkPassword()" >  
                 <p class='hide-show' onclick="toggle()">Show/Hide</p>
             </div>
-
             <span>
                 <div class="error-display">
                     <div id="errorPassword"></div>
                     <div id="error"></div>
+                    <div id="valid"></div>
+                    <div id="valid2"></div>
                 </div>
             </span>
             <button id = "register" type="submit">Sign up</button>
