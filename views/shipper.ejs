@@ -24,7 +24,7 @@
             </div>
             <div class="input_info">
                 <label>📱Phone Number</label>
-                <input id="phone" type="number" name = "phone" maxlength= 11>  
+                <input id="phone" type="number" name = "phone">  
             </div>
             <div class="email">
                 <label name = "address">🏠Address</label>
@@ -36,7 +36,7 @@
                 <p class='hide-show' onclick="toggle()">Show/Hide</p>
             </div>
             <div class="hub">
-                <label for="hub" class="distribution_hub">Distribution hub:</label>
+                <label for="hub" class="distribution_hub">Distribution hub:</label><br>
                 <select name="cars" id="cars">
                     <option value="hcmc">Ho Chi Minh</option>
                     <option value="hanoi">Hanoi</option>
@@ -51,6 +51,11 @@
                     <div id="valid2"></div>
                 </div>
             </span>
+            <div class="upload">
+                <label for="profile" class="profile">Profile image</label><br>
+                <input type="file" id = "img_input" accept="image/png, image/jpg" > 
+            </div>
+            
             <button id = "register" type="submit">Sign up</button>
         </form>
     </div>

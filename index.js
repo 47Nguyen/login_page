@@ -9,7 +9,7 @@ app.set('view engine','ejs')
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, 'public')));
 
-const { default: mongoose } = require('mongoose')
+const { default: mongoose, Collection } = require('mongoose')
 mongoose.connect('mongodb+srv://trungluong0806:Lacussaber080699@cluster0.w8zcmxn.mongodb.net/?retryWrites=true&w=majority')
 .then(() => console.log("Connected to MongoDB Atlas"))
 .catch((error) => console.log(error.message)); 
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
 const shipperSchema = new mongoose.Schema({
     email: String,
     username: String,
-    national_id: Number,
+    address: String,
     Phone_Number: Number,
     Password: String
 })
@@ -42,6 +42,7 @@ const Vendor = mongoose.model('Vendor', vendorSchema)
 const Shipper = mongoose.model('Shipper', shipperSchema)
 
 //Post Method
+
 app.post('/register', (req, res) =>{
     const user = new User({
         username: req.body.username,
@@ -53,13 +54,13 @@ app.post('/register', (req, res) =>{
     .then(() => console.log("User information saved"))
     .catch((error) => console.log(error.message))
     res.redirect("/login")
-})
+}) 
 
 app.post('/shipper', (req, res)=>{
     const shipper = new Shipper({
         email: req.body.email,
         username: req.body.username,
-        national_id: req.body.national,
+        address: req.body.address,
         Phone_Number: req.body.phone,
         Password: req.body.password
     })
@@ -68,6 +69,7 @@ app.post('/shipper', (req, res)=>{
     .catch((error) => console.log(error.message))
     res.redirect("/login")
 })
+
 
 app.post('/vendor', (req, res)=>{
     const vendor = new Vendor({
@@ -85,7 +87,21 @@ app.post('/vendor', (req, res)=>{
     res.redirect('/login')
 })
 
+app.post('/login', async(req,res)=> {
+    try{
+        const check = await User.findOne({name: req.body.name})
+        if (check.password === req.body.password){
+            res.render("parentpage.ejs")
+        }
+        else{
+            res.send("Wrong password")
+        }
+    }
+    catch{
+        res.send("Wrong details")
 
+    }
+})
 
 
 // Get Method
