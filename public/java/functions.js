@@ -30,12 +30,12 @@ form.addEventListener('submit', (e)=>{
         e.preventDefault()
         messages2.push("Username doesn't meet requirement")
     } 
-    if (Password.value.search(/[0-9]/) >= 0 && Password.value.search(/[a-z]/) >= 0 && Password.value.search(/[A-Z]/) >= 0 && Password.value.length >=8 && Password.value.length <=20){
+    if (Password.value.search(/[!@#$%^&*]/)>= 0 && Password.value.search(/[0-9]/) >= 0 && Password.value.search(/[a-z]/) >= 0 && Password.value.search(/[A-Z]/) >= 0 && Password.value.length >=8 && Password.value.length <=20){
         validMessage2.push("Password is valid")
     }
     else{
         e.preventDefault()
-        messages.push("Password is invalid" )
+        messages.push("Password requirements are 1 uppercase letter, 1 number and 1 special symbol" )
     } 
 
     if (address.value === ""){

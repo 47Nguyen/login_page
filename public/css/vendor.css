@@ -100,7 +100,6 @@ a{
 }
 .invalid{
     color: red;
-    text-decoration: line-through;
 }
 .valid{
     color: green;
