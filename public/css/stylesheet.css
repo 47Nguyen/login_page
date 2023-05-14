@@ -9,7 +9,7 @@ body{
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: white;
-    width: 500px;
+    width: 600px;
     border-radius: 5px;
     padding: 25px 30px;
 }
@@ -17,6 +17,7 @@ body{
 
 
 .center h1{
+    font-size: 30px;
     font-family: monospace;
     border-left: 1px solid black;
 }
@@ -38,6 +39,7 @@ form .input_info{
 }
 
 .input_info label{
+    font-size: 30px;
     position: absolute;
     top: 50%;
     left: 5px;
@@ -52,6 +54,8 @@ form .input_info{
 .input_info input:valid ~ label{
     top: -5px;
     color: #2691d9;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
 .forgot_password{
@@ -88,3 +92,61 @@ form .input_info{
     margin-top: -2%;
 }
 
+@media(max-width:1024px){
+    .center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        width: 450px;
+        border-radius: 5px;
+        padding: 25px 30px;
+    }
+    .center h1{
+        font-size: 23px;
+        font-family: monospace;
+        color: red;
+    }
+    .create{
+        font-size: 15px;
+    }
+    .input_info input:focus ~ label,
+    .input_info input:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+    
+    
+    
+}
+
+@media(max-width:768px){
+    .center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: white;
+        width: 330px;
+        border-radius: 5px;
+        padding: 25px 30px;
+    }
+    .center h1{
+        font-size: 20px;
+        font-family: monospace;
+    }
+    .create{
+        font-size: 12px;
+    }
+    .input_info input:focus ~ label,
+    .input_info input:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+    
+}
