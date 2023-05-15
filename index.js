@@ -127,6 +127,7 @@ app.post('/register', async (req, res) => {
       res.status(500).send('Error occurred while registering the user');
     }
   });
+  
 app.post('/login',  async(req,res) => {
     try {
         const check =await User.findOne({username: req.body.username})
