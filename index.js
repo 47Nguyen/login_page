@@ -102,21 +102,23 @@ app.get('/register', (req, res) =>{
 
 
 
-
-
 //Post
-app.post('/register',  (req, res) =>{
+app.post('/register', async (req, res) =>{
     const user = new User({
-        username: req.body.username,
-        address: req.body.address,
-        email: req.body.email,
-        password: req.body.password
-    }) 
-    user.save()
-    .then(() => console.log("User information saved"))
-    .catch((error) => console.log(error.message))
-    res.redirect("/login")
-}) 
+      username,
+      address,
+      email,
+      password
+    });
+
+    await user.save();
+    console.log('User information saved');
+    res.redirect('/login');
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send('Error occurred while registering the user');
+  }
+});
 
 app.post('/login',  async(req,res) => {
     try {
