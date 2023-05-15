@@ -2,8 +2,6 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path')
-
-
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine','ejs')
 app.use(express.urlencoded({extended:true}))
@@ -17,9 +15,10 @@ mongoose.connect('mongodb+srv://trungluong0806:Lacussaber080699@cluster0.w8zcmxn
 const userSchema = new mongoose.Schema({
     username: String,
     address: String,
-    email: String,
-    Password: String
+    email: String ,
+    password: String
 })
+/*
 const shipperSchema = new mongoose.Schema({
     email: String,
     username: String,
@@ -36,26 +35,18 @@ const vendorSchema = new mongoose.Schema({
     baddress: String, 
     Password: String
 })
-
+*/
 const User = mongoose.model('User', userSchema)
-const Vendor = mongoose.model('Vendor', vendorSchema)
-const Shipper = mongoose.model('Shipper', shipperSchema)
+//const Vendor = mongoose.model('Vendor', vendorSchema)
+//const Shipper = mongoose.model('Shipper', shipperSchema)
 
 //Post Method
 
-app.post('/register', (req, res) =>{
-    const user = new User({
-        username: req.body.username,
-        address: req.body.address,
-        email: req.body.email,
-        Password: req.body.password
-    }) 
-    user.save()
-    .then(() => console.log("User information saved"))
-    .catch((error) => console.log(error.message))
-    res.redirect("/login")
-}) 
 
+
+
+
+/*
 app.post('/shipper', (req, res)=>{
     const shipper = new Shipper({
         email: req.body.email,
@@ -85,23 +76,10 @@ app.post('/vendor', (req, res)=>{
     .then(() => console.log("Vendor information saved"))
     .catch((error) => console.log(error.message))
     res.redirect('/login')
-})
+})*/
 
-app.post('/login', async(req,res)=> {
-    try{
-        const check = await User.findOne({name: req.body.name})
-        if (check.password === req.body.password){
-            res.render("parentpage.ejs")
-        }
-        else{
-            res.send("Wrong password")
-        }
-    }
-    catch{
-        res.send("Wrong details")
 
-    }
-})
+
 
 
 // Get Method
@@ -122,6 +100,41 @@ app.get('/vendor', (req, res) =>{
 app.get('/register', (req, res) =>{
     res.render('register.ejs')
 })
+
+
+//Post
+app.post('/register', (req, res) =>{
+
+    const user = new User({
+        username: req.body.username,
+        address: req.body.address,
+        email: req.body.email,
+        password: req.body.password
+    }) 
+    user.save()
+    .then(() => console.log("User information saved"))
+    .catch((error) => console.log(error.message))
+    res.redirect("/login")
+}) 
+
+app.post("/login", async(req, res) =>{
+    const username = req.body.username
+    try {
+        const check = await User.findOne({username: req.body.username})
+        if(check.password === req.body.password){
+            res.render('parentpage.ejs')
+        }
+        else{
+            res.send("Wrong password")
+        }
+        
+    }catch{
+        res.send("Wrong details info")
+    }
+})
+
+
+
 
 
 app.listen(port, ()=> {
