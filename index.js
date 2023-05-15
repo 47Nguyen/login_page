@@ -128,7 +128,8 @@ app.post("/login", async(req, res) =>{
             res.send("Wrong password")
         }
         
-    }catch{
+    }
+    catch{
         res.send("Wrong details info")
     }
 })
