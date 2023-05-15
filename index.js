@@ -117,20 +117,20 @@ app.post('/register', (req, res) =>{
     res.redirect("/login")
 }) 
 
-app.post("/login", async(req, res) =>{
-    const username = req.body.username
-    try {
-        const check = await User.findOne({username: req.body.username})
-        if(check.password === req.body.password){
-            res.render('parentpage.ejs')
+app.post("/login", (req, res) =>{
+    try{
+        const userName = User.findOne({username})
+        if (res.body.password === req.body.password){
+            res.send('Correct info')
+
         }
         else{
-            res.send("Wrong password")
+            res.send("Incorrect password")
         }
-        
     }
     catch{
-        res.send("Wrong details info")
+        res.send("Wrong username and password")
+
     }
 })
 
