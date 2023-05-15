@@ -7,7 +7,7 @@ app.set('view engine','ejs')
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, 'public')));
 
-const { default: mongoose, Collection } = require('mongoose')
+const { default: mongoose, Collection, model } = require('mongoose')
 mongoose.connect('mongodb+srv://trungluong0806:Lacussaber080699@cluster0.w8zcmxn.mongodb.net/?retryWrites=true&w=majority')
 .then(() => console.log("Connected to MongoDB Atlas"))
 .catch((error) => console.log(error.message)); 
@@ -37,6 +37,8 @@ const vendorSchema = new mongoose.Schema({
 })
 */
 const User = mongoose.model('User', userSchema)
+module.exports = User
+
 //const Vendor = mongoose.model('Vendor', vendorSchema)
 //const Shipper = mongoose.model('Shipper', shipperSchema)
 
@@ -87,6 +89,17 @@ app.get('/login', (req, res) =>{
     res.render('login.ejs')
 })
 
+app.get('/login-parent', (req, res) =>{
+    res.render('login-parent.ejs')
+})
+
+app.get('/login-shipper', (req, res) =>{
+    res.render('login-shipper.ejs')
+})
+app.get('/login-vendor', (req, res) =>{
+    res.render('login-Vendor.ejs')
+})
+
 app.get('/shipper', (req, res) =>{
     res.render('shipper.ejs')
 })
@@ -102,9 +115,11 @@ app.get('/register', (req, res) =>{
 })
 
 
-//Post
-app.post('/register', (req, res) =>{
 
+
+
+//Post
+app.post('/register', async (req, res) =>{
     const user = new User({
         username: req.body.username,
         address: req.body.address,
@@ -116,23 +131,6 @@ app.post('/register', (req, res) =>{
     .catch((error) => console.log(error.message))
     res.redirect("/login")
 }) 
-
-app.post("/login", (req, res) =>{
-    try{
-        const userName = User.findOne({username})
-        if (res.body.password === req.body.password){
-            res.send('Correct info')
-
-        }
-        else{
-            res.send("Incorrect password")
-        }
-    }
-    catch{
-        res.send("Wrong username and password")
-
-    }
-})
 
 
 

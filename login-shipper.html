@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>login</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+ <div class="container">
+   <div class="box">
+     <fieldset><legend>Sign in </legend><form method="post">
+       <label for="uname">Username</label>
+            <input type="text" id="uname" name="uname"> <br>
+            <label for="password">Username</label>
+             <input type="password" id="password" name="password" 
+    
+    pattern="^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{7,}$"
+    
+    
+    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required> <br>
+       <label for="hub">Distribution hub</label>
+       <input list="hub">
+       <datalist id="hub">
+         <option value="Ho Chi Minh"></option>
+         <option value="Ha Noi"></option>
+         <option value="Da Nang"></option>
+       </datalist>
+       <input type="submit">
+     </form>
+</fieldset>
+   </div>
+ </div>
+<a href="index.html">back</a>
+  
+
+ 
+</body>
+
+</html>

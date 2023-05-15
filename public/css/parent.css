@@ -1,7 +1,8 @@
 body{
-    background:linear-gradient(120deg,#adf7f2, #15aaff);
+    background:linear-gradient(120deg,#5e72eb, #ff9190);
     height: 100vh;
 }
+
 h1{text-align: center;}
 
 .choose{
@@ -10,6 +11,7 @@ h1{text-align: center;}
     align-items: center;
     margin-top: 2.5%;
 }
+
 .text{
     text-transform: uppercase;
     font-size: 30px;
@@ -17,9 +19,16 @@ h1{text-align: center;}
     font-weight: 700;
     background: linear-gradient(90deg,#000000, #15aaff);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    
+    -webkit-text-fill-color: transparent;   
 }
+.text-login{
+    color: white;
+    text-transform: uppercase;
+    font-size: 30px;
+    display: flex;
+    font-weight: 700;
+}
+
 
 .center{
     position: absolute;
@@ -32,6 +41,24 @@ h1{text-align: center;}
     border-radius: 5px;
     display: flex;
     justify-content: space-between ;
+}
+
+.center-login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    width: 800px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly ;
+}
+.center-login a{
+    text-transform: uppercase;
+    font-size: 30px;
+    text-decoration: none;
 }
 
 .customer{
