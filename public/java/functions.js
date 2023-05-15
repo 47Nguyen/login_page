@@ -1,6 +1,6 @@
 const showHide = document.querySelector(".hide-show")
-const Password = document.querySelector(".pass_info input")
-const username = document.querySelector(".input_info input")
+const Password = document.getElementById("password")
+const username = document.getElementById("username")
 const email = document.querySelector('.email input')
 const address = document.getElementById("address")
 const number = document.getElementById('phone')
@@ -99,6 +99,26 @@ function checkPassword(){
     
 }
 
+const action = document.getElementById("action")
+        const general_info = document.getElementById("general_info")
+        const shipper_specific = document.getElementById("shipper_specific")
+        const vendor_specific = document.getElementById("vendor_specific")
+
+        action.addEventListener("change", function(){
+        if (action.value === "Customer"){
+            shipper_specific.style.display = "none"
+            vendor_specific.style.display = "none"
+        }
+        else if (action.value === "Vendor"){
+            vendor_specific.style.display = "block"
+            shipper_specific.style.display = "none"
+        }
+        else {
+            shipper_specific.style.display = "block"
+            vendor_specific.style.display = "none"
+        
+    }
+}) 
 
 
 

@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     email: String ,
     password: String
 })
-/*
+
 const shipperSchema = new mongoose.Schema({
     email: String,
     username: String,
@@ -35,20 +35,15 @@ const vendorSchema = new mongoose.Schema({
     baddress: String, 
     Password: String
 })
-*/
-const User = mongoose.model('User', userSchema)
-module.exports = User
 
-//const Vendor = mongoose.model('Vendor', vendorSchema)
-//const Shipper = mongoose.model('Shipper', shipperSchema)
+const User = mongoose.model('User', userSchema)
+const Vendor = mongoose.model('Vendor', vendorSchema)
+const Shipper = mongoose.model('Shipper', shipperSchema)
 
 //Post Method
 
 
 
-
-
-/*
 app.post('/shipper', (req, res)=>{
     const shipper = new Shipper({
         email: req.body.email,
@@ -78,7 +73,7 @@ app.post('/vendor', (req, res)=>{
     .then(() => console.log("Vendor information saved"))
     .catch((error) => console.log(error.message))
     res.redirect('/login')
-})*/
+})
 
 
 
@@ -100,15 +95,6 @@ app.get('/login-vendor', (req, res) =>{
     res.render('login-Vendor.ejs')
 })
 
-app.get('/shipper', (req, res) =>{
-    res.render('shipper.ejs')
-})
-app.get('/parent', (req, res) =>{
-    res.render('parentpage.ejs')
-})
-app.get('/vendor', (req, res) =>{
-    res.render('vendor.ejs')
-})
 
 app.get('/register', (req, res) =>{
     res.render('register.ejs')
@@ -119,7 +105,7 @@ app.get('/register', (req, res) =>{
 
 
 //Post
-app.post('/register', async (req, res) =>{
+app.post('/register',  (req, res) =>{
     const user = new User({
         username: req.body.username,
         address: req.body.address,
@@ -132,7 +118,21 @@ app.post('/register', async (req, res) =>{
     res.redirect("/login")
 }) 
 
+app.post('/login',  async(req,res) => {
+    try {
+        const check =await User.findOne({username: req.body.username})
+        if(check.password === req.body.password){
+            res.send("Username and password is correct")
+        }
+        else{
+            res.send("Wrong passowrd")
+        }
 
+    }
+    catch{
+        res.send("Wrong info")
+    }
+})
 
 
 

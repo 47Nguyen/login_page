@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+}
+
+#registration_form{
+    width: 350px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+label{
+    width: 120px;
+    display: inline-block;
+}
+
+h1{
+    font-size: 28px;
+    height: 50px;
+    background: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    margin-left: 20px;
+}
+
+#submit{
+    display: flex;
+    justify-content: center;
+}
+
+#shipper_specific{
+    display: none;
+}
+
+#vendor_specific{
+    display: none;
+
+}
+
+.error-display{
+    margin-left: 1%;
+    color: red;
+}
+
+.invalid{
+    color: red;
+}
+.valid{
+    color: green;
+}
+
+#valid{
+    color: green;
+}
+
+#valid2{
+    color: green;
+}
