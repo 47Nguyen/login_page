@@ -13,18 +13,34 @@ mongoose.connect('mongodb+srv://trungluong0806:Lacussaber080699@cluster0.w8zcmxn
 .catch((error) => console.log(error.message)); 
 
 const userSchema = new mongoose.Schema({
-    username: String,
+    Full_name: String,
+    username: {
+        type: String,
+        unique: true
+    },
     address: String,
+    Phone_Number: Number,
     email: String ,
-    password: String
+    password: String,
+    profileImagePath: String
 })
 
 const shipperSchema = new mongoose.Schema({
+    Full_name: String,
     email: String,
-    username: String,
+    username: {
+        type: String,
+        unique: true
+    },
     address: String,
     Phone_Number: Number,
-    Password: String
+    password: String,
+    Role: {
+        type: String,
+        default: "Shipper"
+    },
+    Hub: String,
+    profileImagePath: String
 })
 const vendorSchema = new mongoose.Schema({
     email: String,
@@ -33,7 +49,7 @@ const vendorSchema = new mongoose.Schema({
     Phone_Number: Number,
     Business_name: String, 
     baddress: String, 
-    Password: String
+    password: String
 })
 
 const User = mongoose.model('User', userSchema)
@@ -41,9 +57,6 @@ const Vendor = mongoose.model('Vendor', vendorSchema)
 const Shipper = mongoose.model('Shipper', shipperSchema)
 
 //Post Method
-
-
-
 app.post('/shipper', (req, res)=>{
     const shipper = new Shipper({
         email: req.body.email,
@@ -75,43 +88,46 @@ app.post('/vendor', (req, res)=>{
     res.redirect('/login')
 })
 
+app.post('/login',  async(req,res) => {
+    try {
+        const check =await User.findOne({username: req.body.username})
+        if(check.password === req.body.password){
+            res.send("Username and password is correct")
+        }
+        else{
+            res.render("login_wrongpass.ejs")
+        }
 
-
-
-
-// Get Method
-app.get('/login', (req, res) =>{
-    res.render('login.ejs')
+    }
+    catch{
+        res.send("Wrong info")
+    }
 })
 
-app.get('/login-parent', (req, res) =>{
-    res.render('login-parent.ejs')
+app.post('/login_wrongpass',async (req,res)=>{
+    try {
+        const check = await User.findOne({username: req.body.username})
+        if(check.password === req.body.password){
+            res.send("Username and password is correct")
+        }
+        else{
+            res.render("login_wrongpass.ejs")
+        }
+
+    }
+    catch{
+        res.send("Wrong info")
+    }
 })
 
-app.get('/login-shipper', (req, res) =>{
-    res.render('login-shipper.ejs')
-})
-app.get('/login-vendor', (req, res) =>{
-    res.render('login-Vendor.ejs')
-})
 
-
-app.get('/register', (req, res) =>{
-    res.render('register.ejs')
-})
-
-
-
-//Post
 app.post('/register', async (req, res) => {
     const { username, address, email, password } = req.body;
-  
     try {
       const existingUser = await User.findOne({ username });
       if (existingUser) {
         return res.status(400).send('Username already exists');
       }
-  
       const user = new User({
         username,
         address,
@@ -126,26 +142,84 @@ app.post('/register', async (req, res) => {
       console.log(error.message);
       res.status(500).send('Error occurred while registering the user');
     }
-  });
+  });   
   
-app.post('/login',  async(req,res) => {
-    try {
-        const check =await User.findOne({username: req.body.username})
-        if(check.password === req.body.password){
-            res.send("Username and password is correct")
-        }
-        else{
-            res.send("Wrong passowrd")
-        }
-
-    }
-    catch{
-        res.send("Wrong info")
-    }
+app.post('/register', (req, res) =>{
+  const register_info = req.body
+  console.log(register_info)
+  if (register_info.action === "Customer"){
+      console.log(true)
+      const user = new User({
+          username: register_info.username,
+          address: register_info.address,
+          email: register_info.email,
+          Phone_number : register_info.phone,
+          password: register_info.password
+      }) 
+      user.save()
+      .then(() => console.log("User information saved"))
+      .catch((error) => console.log(error.message))
+      response.redirect("/")
+  }
+  else if (register_info.action === "Shipper"){
+      const shipper = new Shipper({
+          Full_name: register_info.Full_name, 
+          email: register_info.email, username: register_info.username, 
+          address: register_info.address, 
+          Phone_Number: register_info.phone,
+          Password: register_info.password, 
+          Hub: hub
+          })
+   shipper.save()
+    .then(() => console.log("Shipper saved"))
+    .catch((error) => console.log(error.message))
+    res.redirect("/login")
+  }
+  
+  else {
+     const vendor = new Vendor({
+      Full_name: register_info.Full_name, 
+      email: register_info.email, 
+      username: register_info.username,
+      address: register_info.address, 
+      Phone_Number: register_info.phone,
+      Password: register_info.password,
+      Business_name: register_info.business, 
+      baddress: register_info.baddress, 
+      national_id: register_info.National_id})
+    vendor.save()
+    .then(() => console.log("Vendor saved"))
+    .catch((error) => console.log(error.message))
+    res.redirect("/login")
+  } 
+  
+    
 })
 
+
+// Get Method
+app.get('/login', (req, res) =>{
+    res.render('login.ejs')
+})
+app.get('/login-wrong', (req, res) =>{
+    res.render('login_wrongpass.ejs')
+})
+
+
+app.get('/parent', (req, res) =>{
+    res.render('parentpage.ejs')
+})
+
+app.get('/register', (req, res) =>{
+    res.render('register.ejs')
+}) 
+
+ 
 
 
 app.listen(port, ()=> {
     console.log("Port Working")
 })
+
+
+
